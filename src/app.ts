@@ -15,7 +15,7 @@ async function getPosts() {
     try {
       posts = await getAllPosts(50, posts ? posts.cursorId : null);
       posts.data.forEach(post => {
-        result?.push(post);
+        result.push(post);
       });
     } catch (error) {
       const httpApiError = getHttpApiError(error);
