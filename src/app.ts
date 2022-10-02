@@ -43,7 +43,7 @@ async function createSitemap(filePath: string) {
             loc: baseServiceUrl,
           },
           {
-            lastmod: new Date(Math.max.apply(null, posts.map(post => new Date(post.createdAt).getTime()))).toISOString(),
+            lastmod: new Date(Math.max.apply(null, posts.map(post => new Date(post.lastModifiedAt).getTime()))).toISOString(),
           },
           { priority: '1.0' },
         ],
@@ -55,7 +55,7 @@ async function createSitemap(filePath: string) {
               loc: `${baseServiceUrl}/${url.blogId}/posts/${url.postUrl}`,
             },
             {
-              lastmod: new Date(url.createdAt).toISOString(),
+              lastmod: new Date(url.lastModifiedAt).toISOString(),
             },
           ],
         });
