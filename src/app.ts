@@ -10,7 +10,7 @@ const fs = require('fs');
 const path = require('path');
 const baseServiceUrl = 'https://hwanstory.kr';
 const baseApiServiceUrl = 'https://api.blog.kimhwan.kr';
-const attachmentFileBaseUrl = `${baseApiServiceUrl}/v1`;
+const attachmentFileBaseUrl = `${baseApiServiceUrl}/api/v1`;
 
 let cachedPosts: Array<SimplePostDto> | null = null;
 
