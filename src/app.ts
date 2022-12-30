@@ -120,7 +120,7 @@ async function createStatics(baseDir: string) {
     const staticFilePath = path.join(staticDirPath, `${post.postUrl}.html`);
 
     if (fs.existsSync(staticDirPath) == false) {
-      fs.mkdirSync(staticDirPath);
+      fs.mkdirSync(staticDirPath, { recursive: true });
     }
 
     fs.writeFileSync(staticFilePath, getStaticContent(post));
