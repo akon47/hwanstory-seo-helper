@@ -5,7 +5,7 @@ import { SliceDto } from './api/models/common.dtos';
 import { SimplePostDto } from './api/models/blog.dtos';
 
 const fs = require('fs');
-const baseServiceUrl = 'https://blog.kimhwan.kr';
+const baseServiceUrl = 'https://hwanstory.kr';
 
 async function getPosts() {
   const result: Array<SimplePostDto> = [];
