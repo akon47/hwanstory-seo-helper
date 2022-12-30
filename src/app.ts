@@ -94,21 +94,31 @@ async function createStatics(baseDir: string) {
 
     const [title] = html.getElementsByTagName('title');
     const [openGraphTitle] = html.getElementsByTagName('meta').filter(x => x.attributes.property == 'og:title');
+    const [twitterTitle] = html.getElementsByTagName('meta').filter(x => x.attributes.name == 'twitter:title');
+
     const [description] = html.getElementsByTagName('meta').filter(x => x.attributes.name == 'description');
     const [openGraphDescription] = html.getElementsByTagName('meta').filter(x => x.attributes.property == 'og:description');
+    const [twitterDescription] = html.getElementsByTagName('meta').filter(x => x.attributes.name == 'twitter:description');
+
     const [openGraphImage] = html.getElementsByTagName('meta').filter(x => x.attributes.property == 'og:image');
+    const [twitterImage] = html.getElementsByTagName('meta').filter(x => x.attributes.name == 'twitter:image');
 
     title?.set_content(post.title);
     openGraphTitle?.setAttribute('content', post.title);
+    twitterTitle?.setAttribute('content', post.title);
     description?.setAttribute('content', post.summary);
     openGraphDescription?.setAttribute('content', post.summary);
-    if (post.thumbnailImageUrl)
+    twitterDescription?.setAttribute('content', post.summary);
+    if (post.thumbnailImageUrl) {
       openGraphImage?.setAttribute('content', `${attachmentFileBaseUrl}${post.thumbnailImageUrl}`);
+      twitterImage?.setAttribute('content', `${attachmentFileBaseUrl}${post.thumbnailImageUrl}`);
+    }
 
     const [head] = html.getElementsByTagName('head');
     if (head) {
       head.insertAdjacentHTML('beforeend', `<meta property="og:url" content="${baseServiceUrl}/${post.blogId}/posts/${post.postUrl}"/>`);
       head.insertAdjacentHTML('beforeend', '<meta property="og:type" content="article"/>');
+      head.insertAdjacentHTML('beforeend', '<meta name="twitter:card" content="summary_large_image"/>');
     }
 
     return html.toString();
