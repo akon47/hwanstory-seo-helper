@@ -103,7 +103,7 @@ async function createStatics(baseDir: string) {
     const [openGraphImage] = html.getElementsByTagName('meta').filter(x => x.attributes.property == 'og:image');
     const [twitterImage] = html.getElementsByTagName('meta').filter(x => x.attributes.name == 'twitter:image');
 
-    const [openGraphUrl] = html.getElementsByTagName('meta').filter(x => x.attributes.property == 'og:image');
+    const [openGraphUrl] = html.getElementsByTagName('meta').filter(x => x.attributes.property == 'og:url');
 
     title?.set_content(post.title);
     openGraphTitle?.setAttribute('content', post.title);
