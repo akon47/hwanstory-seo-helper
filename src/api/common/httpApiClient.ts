@@ -1,8 +1,8 @@
 import axios, { AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
 import DataTransferObject, { ErrorResponseDto } from '../models/common.dtos';
 
-export const serverUrl = 'https://api.blog.kimhwan.kr';
-export const apiBaseUrl = `${serverUrl}/api/`;
+export const serverUrl = process.env.API_BASE_URI;
+export const apiBaseUrl = `${serverUrl}api/`;
 export const attachmentFileBaseUrl = `${apiBaseUrl}v1`;
 
 export interface HttpApiClient {

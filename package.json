@@ -2,7 +2,7 @@
   "name": "hwanstory-seo-helper",
   "version": "1.0.0",
   "description": "search engine optimization helper for hwanstory",
-  "main": "src/app.ts",
+  "main": "src/seo-helper.ts",
   "scripts": {
     "dev": "nodemon",
     "build": "rimraf ./build && tsc",
@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "axios": "^0.27.2",
+    "dotenv": "^16.0.3",
     "node-html-parser": "^6.1.4",
     "xml": "^1.0.1"
   }
