@@ -42,7 +42,7 @@ class SeoHelper {
           urls.push({
             url: [
               {
-                loc: `${blogBaseUri}/${url.blogId}/posts/${url.postUrl}`,
+                loc: `${blogBaseUri}/${url.author.blogId}/posts/${url.postUrl}`,
               },
               {
                 lastmod: new Date(url.lastModifiedAt).toISOString(),
@@ -100,7 +100,7 @@ class SeoHelper {
         createOrModifyMetaAttributeContent('name', 'twitter:image', postThumbnailImageUrl);
       }
 
-      const postUrl = `${blogBaseUri}/${post.blogId}/posts/${post.postUrl}`;
+      const postUrl = `${blogBaseUri}/${post.author.blogId}/posts/${post.postUrl}`;
       createOrModifyMetaAttributeContent('property', 'og:url', postUrl);
 
       createOrModifyMetaAttributeContent('property', 'og:type', 'article');
@@ -111,7 +111,7 @@ class SeoHelper {
 
 
     for (const post of posts) {
-      const staticDirPath = path.join(baseDir, post.blogId, 'posts');
+      const staticDirPath = path.join(baseDir, post.author.blogId, 'posts');
       const staticFilePath = path.join(staticDirPath, `${post.postUrl}.html`);
 
       if (!fs.existsSync(staticDirPath)) {
